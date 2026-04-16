@@ -8866,7 +8866,7 @@ h3.title { font-size: 1.5rem; }
         <a class="mle-workspace-quick-nav__link" href="#favorite-lotteries">Favorite lotteries</a>
       </div>
       <p class="mle-workspace-quick-nav__hint">
-        Start at Saved Predictions, compare with Results and analysis, build your final set in Strategy Builder inside each draw card, then save to Numbers to Play and open in Wheel Builder.
+        Start at Saved Predictions and compare with Results and analysis. Build your final set in Strategy Builder inside each draw card, then save to Numbers to Play and open in Wheel Builder.
       </p>
     </div>
 
