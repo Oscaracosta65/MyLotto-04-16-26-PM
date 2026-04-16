@@ -8867,7 +8867,7 @@ h3.title { font-size: 1.5rem; }
         <a class="mle-workspace-quick-nav__link" href="#favorite-lotteries">Favorite lotteries</a>
       </div>
       <p class="mle-workspace-quick-nav__hint">
-        Start at Saved predictions, compare with Results and analysis, build your final set in Strategy Builder inside each draw card, then save to Numbers to Play and open in Wheel Builder.
+        Start at Saved Predictions, compare with Results and analysis, build your final set in Strategy Builder inside each draw card, then save to Numbers to Play and open in Wheel Builder.
       </p>
     </div>
 
@@ -13296,7 +13296,7 @@ foreach ($bestOpps as $__sopp) {
           Run AI Prediction
         </a>
         <a href="/select-favorite-lotteries" class="btn-secondary">
-          Select favorite lotteries
+          Select Favorite Lotteries
         </a>
       </div>
       <p style="font-size:0.86rem;color:#64748b;margin:0.85rem 0 0;line-height:1.55;">
@@ -17271,7 +17271,7 @@ if (!empty($settingLabels)) {
     No saved number sets yet. Build a set in Strategy Builder from any saved prediction card, or save directly from a prediction run. Then open the set in Wheel Builder to apply a wheel and generate combinations.
     <div class="mle-play-empty__actions">
       <a href="#saved-predictions" class="btn-secondary">Go to saved predictions</a>
-      <a href="/#ai-tools" class="btn-primary">Run AI prediction</a>
+      <a href="/#ai-tools" class="btn-primary">Run AI Prediction</a>
     </div>
   </div>
   <?php endif; ?>
@@ -17517,7 +17517,7 @@ $savedSettings = $db->loadAssocList() ?: [];
       Save settings after a strong prediction run so you can quickly reuse proven setups for the same lottery and draw context.
       <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem;">
         <a href="#saved-predictions" class="btn-secondary">Review saved predictions</a>
-        <a href="/#ai-tools" class="btn-primary">Run AI prediction</a>
+        <a href="/#ai-tools" class="btn-primary">Run AI Prediction</a>
       </div>
     </div>
   </div>
