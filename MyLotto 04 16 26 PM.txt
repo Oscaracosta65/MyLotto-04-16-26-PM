@@ -4285,6 +4285,53 @@ if (MLE_DEMO_MODE) {
   background:#f8fafc;
 }
 .mle-start-here__advanced strong{color:#334155;}
+.mle-workspace-quick-nav{
+  margin:0.95rem 0 0.2rem;
+  border:1px solid #dbe4f0;
+  border-radius:14px;
+  background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);
+  box-shadow:0 8px 22px rgba(15,23,42,0.06);
+  padding:0.85rem 1rem 0.9rem;
+}
+.mle-workspace-quick-nav__title{
+  margin:0 0 0.55rem;
+  font-size:0.84rem;
+  font-weight:800;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:#123a78;
+}
+.mle-workspace-quick-nav__links{
+  display:flex;
+  -webkit-flex-wrap:wrap;
+  flex-wrap:wrap;
+  gap:0.5rem;
+}
+.mle-workspace-quick-nav__link{
+  display:inline-flex;
+  align-items:center;
+  padding:0.45rem 0.72rem;
+  border:1px solid #cfe0fb;
+  border-radius:999px;
+  background:#eff6ff;
+  color:#1d4ed8;
+  font-size:0.8rem;
+  font-weight:700;
+  line-height:1.2;
+  text-decoration:none;
+}
+.mle-workspace-quick-nav__link:hover,
+.mle-workspace-quick-nav__link:focus{
+  background:#dbeafe;
+  border-color:#93c5fd;
+  color:#1e3a8a;
+}
+.mle-workspace-quick-nav__hint{
+  margin:0.6rem 0 0;
+  font-size:0.8rem;
+  color:#475569;
+  line-height:1.55;
+}
 @media (max-width:860px){
   .mle-start-here__steps{grid-template-columns:1fr;}
 }
@@ -4292,6 +4339,7 @@ if (MLE_DEMO_MODE) {
   .mle-start-here__header{padding:0.9rem 1rem 0.8rem;}
   .mle-start-here__body{padding:0.9rem 1rem 0.95rem;}
   .mle-start-here__title{font-size:0.98rem;}
+  .mle-workspace-quick-nav{padding:0.8rem 0.85rem;}
 }
 
 /* ===== merged style section ===== */
@@ -8285,6 +8333,13 @@ h3.title { font-size: 1.5rem; }
   color: #94a3b8;
   font-size: 0.88rem;
   line-height: 1.6;
+  min-height: 170px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 .skai-lp-empty-icon {
   font-size: 2.2rem;
@@ -8799,6 +8854,20 @@ h3.title { font-size: 1.5rem; }
 
       <p class="skai-section__subtitle">
         Use this workspace to review your favorite lotteries, compare prediction methods, and decide what to run next.
+      </p>
+    </div>
+
+    <div class="mle-workspace-quick-nav" role="navigation" aria-label="Dashboard workflow quick links">
+      <h3 class="mle-workspace-quick-nav__title">Workflow quick links</h3>
+      <div class="mle-workspace-quick-nav__links">
+        <a class="mle-workspace-quick-nav__link" href="#saved-predictions">Saved predictions</a>
+        <a class="mle-workspace-quick-nav__link" href="#mle-historical-validation-wrap">Results and analysis</a>
+        <a class="mle-workspace-quick-nav__link" href="#numbers-to-play">Numbers to Play</a>
+        <a class="mle-workspace-quick-nav__link" href="#saved-settings">Saved settings</a>
+        <a class="mle-workspace-quick-nav__link" href="#favorite-lotteries">Favorite lotteries</a>
+      </div>
+      <p class="mle-workspace-quick-nav__hint">
+        Start at Saved predictions, compare with Results and analysis, build your final set in Strategy Builder inside each draw card, then save to Numbers to Play and open in Wheel Builder.
       </p>
     </div>
 
@@ -13222,9 +13291,17 @@ foreach ($bestOpps as $__sopp) {
         To get started, run a prediction and save it here.
       </p>
 
-      <a href="/#ai-tools" class="btn-primary">
-        Run a Prediction
-      </a>
+      <div style="display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap;">
+        <a href="/#ai-tools" class="btn-primary">
+          Run AI Prediction
+        </a>
+        <a href="/select-favorite-lotteries" class="btn-secondary">
+          Select favorite lotteries
+        </a>
+      </div>
+      <p style="font-size:0.86rem;color:#64748b;margin:0.85rem 0 0;line-height:1.55;">
+        After saving your first run, use Strategy Builder inside each draw card to narrow your numbers, then save to Numbers to Play for Wheel Builder.
+      </p>
     <?php endif; ?>
 
   </div>
@@ -13236,7 +13313,7 @@ foreach ($bestOpps as $__sopp) {
      Saved Predictions & Numbers Section $unionSql
 ================================================== -->
 
-<div class="mle-section-label" style="margin:1.5rem 0 1rem; padding:0 0.25rem;">
+<div id="saved-predictions" class="mle-section-label" style="margin:1.5rem 0 1rem; padding:0 0.25rem;">
   <h2 style="font-size:1.1rem; font-weight:800; color:#1e293b; margin:0 0 0.35rem;">Your saved predictions</h2>
   <p style="font-size:0.9rem; color:#475569; margin:0; line-height:1.55;">Each card shows numbers you saved for a specific draw. Select multiple runs to compare overlap, see which methods agreed, and review which setups performed best against real results.</p>
 </div>
@@ -17082,7 +17159,14 @@ if (!empty($settingLabels)) {
 .mle-play-actions{display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:0.75rem;align-items:center;}
 .mle-play-actions form{margin:0;}
 .mle-play-input{padding:0.35rem 0.5rem;border:1px solid #cdd8eb;border-radius:8px;font-size:0.78rem;}
-.mle-play-empty{padding:1rem;color:#4b5f7f;font-size:0.92rem;line-height:1.5;}
+.mle-play-empty{padding:1rem;color:#4b5f7f;font-size:0.92rem;line-height:1.5;min-height:120px;}
+.mle-play-empty__actions{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem;}
+.mle-play-empty__actions a{text-decoration:none;}
+#numbers-to-play,
+#saved-predictions,
+#saved-settings,
+#mle-historical-validation-wrap,
+#favorite-lotteries{scroll-margin-top:1rem;}
 @media (max-width:680px){.mle-play-actions{flex-direction:column;align-items:stretch;}.mle-play-actions form{width:100%;}.mle-play-actions button,.mle-play-actions select,.mle-play-actions input{width:100%;}}
 </style>
 
@@ -17116,9 +17200,9 @@ if (!empty($settingLabels)) {
         <?php endif; ?>
       </div>
       <div class="mle-play-meta">
-        <?php echo htmlspecialchars((string)($__play->lottery_name ?? 'Lottery'), ENT_QUOTES, 'UTF-8'); ?>
-        <?php if ($__playDrawLabel !== ''): ?> | Draw: <?php echo htmlspecialchars($__playDrawLabel, ENT_QUOTES, 'UTF-8'); ?><?php endif; ?>
-        <?php if ($__playSavedLabel !== ''): ?> | Saved: <?php echo htmlspecialchars($__playSavedLabel, ENT_QUOTES, 'UTF-8'); ?><?php endif; ?>
+        Lottery: <?php echo htmlspecialchars((string)($__play->lottery_name ?? 'Lottery'), ENT_QUOTES, 'UTF-8'); ?>
+        <?php if ($__playDrawLabel !== ''): ?> | Target draw: <?php echo htmlspecialchars($__playDrawLabel, ENT_QUOTES, 'UTF-8'); ?><?php endif; ?>
+        <?php if ($__playSavedLabel !== ''): ?> | Saved on: <?php echo htmlspecialchars($__playSavedLabel, ENT_QUOTES, 'UTF-8'); ?><?php endif; ?>
         <?php if ($__playWheelCount > 0): ?> | Sent to Wheel Builder: <?php echo (int)$__playWheelCount; ?><?php endif; ?>
       </div>
       <div class="mle-play-row"><strong>Main numbers:</strong> <?php echo htmlspecialchars(!empty($__playMain) ? implode(', ', $__playMain) : '-', ENT_QUOTES, 'UTF-8'); ?></div>
@@ -17175,7 +17259,11 @@ if (!empty($settingLabels)) {
   </div>
   <?php else: ?>
   <div class="mle-play-empty">
-    No saved number sets yet. Use the Strategy Builder to build and save a set, or save directly from a prediction run. Once saved, open in Wheel Builder to apply your selected wheel and generate combinations.
+    No saved number sets yet. Build a set in Strategy Builder from any saved prediction card, or save directly from a prediction run. Then open the set in Wheel Builder to apply a wheel and generate combinations.
+    <div class="mle-play-empty__actions">
+      <a href="#saved-predictions" class="btn-secondary">Go to saved predictions</a>
+      <a href="/#ai-tools" class="btn-primary">Run AI prediction</a>
+    </div>
   </div>
   <?php endif; ?>
 </div>
@@ -17201,7 +17289,7 @@ $savedSettings = $db->loadAssocList() ?: [];
 
 ?>
 <?php if (!empty($savedSettings)): ?>
-  <div class="card" style="margin-top:2rem;">
+  <div id="saved-settings" class="card" style="margin-top:2rem;">
     <div class="card-header">
       <h3 class="title">Saved configurations</h3>
       <p style="margin:0; color:var(--skai-text-secondary); font-size:0.9rem;">Reuse your saved settings for future predictions</p>
@@ -17409,6 +17497,20 @@ $savedSettings = $db->loadAssocList() ?: [];
         </li>
       <?php endforeach; ?>
     </ul>
+  </div>
+<?php else: ?>
+  <div id="saved-settings" class="card" style="margin-top:2rem;">
+    <div class="card-header">
+      <h3 class="title">Saved configurations</h3>
+      <p style="margin:0; color:var(--skai-text-secondary); font-size:0.9rem;">You have not saved any settings yet.</p>
+    </div>
+    <div style="padding:1rem; color:#475569; font-size:0.9rem; line-height:1.6;">
+      Save settings after a strong prediction run so you can quickly reuse proven setups for the same lottery and draw context.
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem;">
+        <a href="#saved-predictions" class="btn-secondary">Review saved predictions</a>
+        <a href="/#ai-tools" class="btn-primary">Run AI prediction</a>
+      </div>
+    </div>
   </div>
 <?php endif; ?>
 
